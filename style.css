@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(1200px 500px at 20% -10%, #dbeafe 0%, transparent 60%),
+    radial-gradient(900px 450px at 90% 0%, #fde68a 0%, transparent 55%),
+    linear-gradient(160deg, #f8fafc 0%, #eaf1ff 100%);
+  color: #1f2937;
+}
+
+.app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(30, 58, 138, 0.1);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.desc {
+  margin: 0 0 20px;
+  color: #4b5563;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+select,
+button,
+input {
+  font: inherit;
+}
+
+select,
+button {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 9px 12px;
+  background: #fff;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f3f4f6;
+}
+
+.actions {
+  display: inline-flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.btn {
+  min-width: 70px;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-warn {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #111827;
+}
+
+.btn-warn:hover {
+  background: #d97706;
+  color: #fff;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.session-status {
+  margin: 0 0 14px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.card span {
+  display: block;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.card strong {
+  font-size: 20px;
+}
+
+.typing-area {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.typing-area.paused {
+  border-color: #f59e0b;
+  box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(245, 158, 11, 0.15);
+}
+
+.line-stage {
+  height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: auto;
+  padding-right: 4px;
+  line-height: 1.7;
+  font-size: 20px;
+  letter-spacing: 0.3px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.line-row {
+  width: 100%;
+  padding: 4px 6px;
+  border-radius: 8px;
+  color: #374151;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.line-row.current {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.line-row.done {
+  color: #6b7280;
+}
+
+.line-input-slot {
+  width: 100%;
+  padding: 2px 0 8px;
+  scroll-margin-block: 190px;
+}
+
+.char {
+  border-radius: 3px;
+}
+
+.char.correct {
+  background: #dcfce7;
+}
+
+.char.wrong {
+  background: #fee2e2;
+}
+
+.line-input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 9px 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.line-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  background: #fff;
+}
+
+.line-input.active {
+  border-color: #60a5fa;
+  background: #fff;
+}
+
+.line-input:disabled {
+  color: #94a3b8;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+.start-overlay {
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed #93c5fd;
+  border-radius: 12px;
+  background: rgba(239, 246, 255, 0.94);
+  color: #1d4ed8;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.start-overlay:hover {
+  background: rgba(219, 234, 254, 0.98);
+}
+
+.start-overlay.paused {
+  border-color: #f59e0b;
+  background: rgba(255, 247, 237, 0.95);
+  color: #b45309;
+}
+
+.start-overlay.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .app {
+    margin: 16px auto;
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  .line-stage {
+    height: 420px;
+    font-size: 18px;
+  }
+
+  .actions {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .actions .btn {
+    flex: 1;
+  }
+}

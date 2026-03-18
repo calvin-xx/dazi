@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中英文打字练习</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>中英文打字练习</h1>
+    <p class="desc">支持中文/英文练习，支持文章选项、实时速度和正确率统计。</p>
+
+    <section class="controls">
+      <label for="langSelect">练习语言</label>
+      <select id="langSelect">
+        <option value="zh">中文</option>
+        <option value="en">English</option>
+      </select>
+
+      <label for="articleSelect">文章</label>
+      <select id="articleSelect"></select>
+
+      <div class="actions">
+        <button id="newTextBtn" class="btn btn-primary" type="button">随机文章</button>
+        <button id="pauseBtn" class="btn btn-warn" type="button">暂停</button>
+        <button id="resetBtn" class="btn" type="button">重置</button>
+      </div>
+    </section>
+
+    <p id="sessionStatus" class="session-status">状态：未开始</p>
+
+    <section class="stats">
+      <div class="card"><span>时间</span><strong id="time">0s</strong></div>
+      <div class="card"><span>速度</span><strong id="speed">0 CPM</strong></div>
+      <div class="card"><span>历史最快</span><strong id="bestSpeed">--</strong></div>
+      <div class="card"><span>正确率</span><strong id="accuracy">100%</strong></div>
+      <div class="card"><span>进度</span><strong id="progress">0/0</strong></div>
+    </section>
+
+    <section id="typingArea" class="typing-area">
+      <div id="lineStage" class="line-stage" aria-live="polite"></div>
+      <button id="startOverlay" class="start-overlay" type="button">点击或空格开始</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
